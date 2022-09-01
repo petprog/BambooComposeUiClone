@@ -7,11 +7,13 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.demoapp.petprog.bamboocomposeclone.common.BambooComposeCloneTheme
+import com.demoapp.petprog.bamboocomposeclone.common.green
 import com.demoapp.petprog.bamboocomposeclone.ui.BottomNavigationBar
 import com.demoapp.petprog.bamboocomposeclone.ui.Navigation
 
@@ -27,6 +29,8 @@ class MainActivity : ComponentActivity() {
     fun topBar() {
 
         TopAppBar(
+            backgroundColor = green,
+            contentColor = Color.White,
             title = {
                 Text(text = "")
             },
