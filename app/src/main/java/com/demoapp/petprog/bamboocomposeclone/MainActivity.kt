@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
     fun topBar() {
 
         TopAppBar(
-            backgroundColor = green,
+            backgroundColor = MaterialTheme.colors.primary,
             contentColor = Color.White,
             title = {
                 Text(text = "")
