@@ -1,15 +1,17 @@
-package com.demoapp.petprog.bamboocomposeclone.ui.theme
+package com.demoapp.petprog.bamboocomposeclone.common
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = green,
+    primaryVariant = green,
+    secondary = green
 )
 
 private val LightColorPalette = lightColors(
@@ -36,6 +38,21 @@ fun BambooComposeCloneTheme(
         DarkColorPalette
     } else {
         LightColorPalette
+    }
+
+    val systemUiController = rememberSystemUiController()
+    SideEffect {
+        if (darkTheme) {
+            systemUiController.setSystemBarsColor(
+                darkIcons = false,
+                color = green
+            )
+        } else {
+            systemUiController.setSystemBarsColor(
+                darkIcons = false,
+                color = Purple500
+            )
+        }
     }
 
     MaterialTheme(

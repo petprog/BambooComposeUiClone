@@ -1,4 +1,4 @@
-package com.demoapp.petprog.bamboocomposeclone.ui.theme
+package com.demoapp.petprog.bamboocomposeclone.common
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
