@@ -3,41 +3,73 @@ package com.demoapp.petprog.bamboocomposeclone
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.demoapp.petprog.bamboocomposeclone.common.BambooComposeCloneTheme
+import com.demoapp.petprog.bamboocomposeclone.ui.BottomNavigationBar
+import com.demoapp.petprog.bamboocomposeclone.ui.Navigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            BambooComposeCloneTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+            MainScreen()
         }
     }
-}
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
+    @Composable
+    fun topBar() {
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    BambooComposeCloneTheme {
-        Greeting("Android")
+        TopAppBar(
+            title = {
+                Text(text = "")
+            },
+            elevation = 0.dp,
+
+            navigationIcon = {
+                // show drawer icon
+                IconButton(
+                    onClick = {
+                    }
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_show_chart),
+                        contentDescription = null
+                    )
+                }
+            },
+            actions = {
+                IconButton(onClick = {
+
+                }) {
+                    Icon(
+                        imageVector = Icons.Filled.Search,
+                        contentDescription = "Search"
+                    )
+                }
+            }
+        )
+
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun MainScreen() {
+        BambooComposeCloneTheme {
+            val navController = rememberNavController()
+            Scaffold(
+                topBar = { topBar() },
+                bottomBar = { BottomNavigationBar(navController) }
+
+            ) {
+                Navigation(navController)
+            }
+        }
     }
 }

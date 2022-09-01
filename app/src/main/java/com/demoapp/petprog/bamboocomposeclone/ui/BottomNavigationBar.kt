@@ -12,6 +12,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
 import com.demoapp.petprog.bamboocomposeclone.NavigationItem
 import com.demoapp.petprog.bamboocomposeclone.ui.screens.*
 
@@ -25,7 +26,7 @@ fun BottomNavigationBar(navController: NavController) {
         NavigationItem.Profile
     )
     BottomNavigation(
-        backgroundColor = Color.White,
+        backgroundColor = MaterialTheme.colors.background,
         contentColor = Color.White
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -85,5 +86,6 @@ fun Navigation(navController: NavHostController) {
 @Preview(showBackground = true)
 @Composable
 fun BottomNavigationBarPreview() {
-
+    val navController = rememberNavController()
+    BottomNavigationBar(navController = navController)
 }

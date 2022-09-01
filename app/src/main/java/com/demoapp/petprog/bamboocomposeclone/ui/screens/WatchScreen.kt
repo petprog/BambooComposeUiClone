@@ -22,7 +22,7 @@ fun WatchScreen(){
     ) {
         Text(
             text = "Watch List",
-            fontWeight = FontWeight.Bold,
+//            fontWeight = FontWeight.Bold,
             modifier = Modifier.align(Alignment.CenterHorizontally),
             textAlign = TextAlign.Center,
             fontSize = 25.sp
